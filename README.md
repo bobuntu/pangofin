@@ -10,5 +10,5 @@ A modern boilerplate for C++ project, built on Cmake, Catch and spdlog
 
 | Distribution | Compiler | `CMAKE_BUILD_TYPE` |  Status  |
 |--------------|----------|--------------------|----------|
-| Ubuntu 16.04 | `g++-8.1`| `Debug`             | ![Status](https://travis-matrix-badges.herokuapp.com/repos/ceable/pangofin/branches/master/1) |
-| Ubuntu 16.04 | `g++-8.1`| `Release`             | ![Status](https://travis-matrix-badges.herokuapp.com/repos/ceable/pangofin/branches/master/2) |
+| Ubuntu 16.04 | `g++-5`| `Debug`             | ![Status](https://travis-matrix-badges.herokuapp.com/repos/ceable/pangofin/branches/master/1) |
+| Ubuntu 16.04 | `g++-5`| `Release`             | ![Status](https://travis-matrix-badges.herokuapp.com/repos/ceable/pangofin/branches/master/2) |
