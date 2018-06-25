@@ -32,3 +32,6 @@
 /build
 /.idea
 /cmake-build-*
+
+# Editor related assets
+/.vscode

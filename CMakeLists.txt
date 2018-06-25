@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.1)
-project(example)
+project(pangofin)
 
-# Change all `example` to your project name!
-set(example-build_tests OFF CACHE BOOL "Whether to build tests")
+# Change all `pangofin` to your project name!
+set(pangofin-build_tests OFF CACHE BOOL "Whether to build tests")
 
 # Enable C++14
 set (CMAKE_CXX_STANDARD 14)
@@ -27,18 +27,18 @@ include_directories(${spdlog_SOURCE_DIR}/include)
 ##################################
 include_directories(src)
 
-set(example_SOURCE src/example/example.hpp src/example/example.cpp)
+set(pangofin_SOURCE src/module/pangofin.hpp src/pangofin/pangofin.cc)
 
-add_library(example STATIC ${example_SOURCE})
-target_link_libraries(example ${CMAKE_THREAD_LIBS_INIT})
+add_library(pangofin STATIC ${pangofin_SOURCE})
+target_link_libraries(pangofin ${CMAKE_THREAD_LIBS_INIT})
 
-if (example-build_tests)
+if (pangofin-build_tests)
     enable_testing()
 
-    add_executable(example-test test/example_test.cpp test/test_main.cpp)
-    target_include_directories(example-test PUBLIC ${Catch_INCLUDE_DIR})
-    target_link_libraries(example-test example)
+    add_executable(pangofin-test test/pangofin_test.cc test/test_main.cc)
+    target_include_directories(pangofin-test PUBLIC ${Catch_INCLUDE_DIR})
+    target_link_libraries(pangofin-test pangofin)
 
 
-    add_test(example_test example-test)
+    add_test(pangofin_test pangofin-test)
 endif()

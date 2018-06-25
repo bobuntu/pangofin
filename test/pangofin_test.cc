@@ -1,6 +1,6 @@
 #include <catch.hpp>
 #include <spdlog/spdlog.h>
-#include "example/example.hpp"
+#include "module/pangofin.hpp"
 
 TEST_CASE("Times should return the multiplication", "[times]")
 {
