@@ -17,10 +17,10 @@ script:
 matrix:
   include:
     - env: 
-          - X_CC=gcc-8.1
-          - X_CXX=g++-8.1
+          - X_CC=gcc-5
+          - X_CXX=g++-5
           - BUILD_TYPE=Debug
     - env: 
-          - X_CC=gcc-8.1
-          - X_CXX=g++-8.1
+          - X_CC=gcc-5
+          - X_CXX=g++-5
           - BUILD_TYPE=Release
