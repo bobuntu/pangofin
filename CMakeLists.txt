@@ -27,7 +27,7 @@ include_directories(${spdlog_SOURCE_DIR}/include)
 ##################################
 include_directories(src)
 
-set(pangofin_SOURCE src/module/pangofin.hpp src/pangofin/pangofin.cc)
+set(pangofin_SOURCE src/module/pangofin.hpp src/module/pangofin.cc)
 
 add_library(pangofin STATIC ${pangofin_SOURCE})
 target_link_libraries(pangofin ${CMAKE_THREAD_LIBS_INIT})
