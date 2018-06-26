@@ -1,8 +1,8 @@
 # pangofin
 A modern boilerplate for C++ project, built on Cmake, Catch and spdlog
 
-[![Travis](https://img.shields.io/travis/ceable/pangofin.svg?style=flat-square)](https://travis-ci.org/ceable/pangofin)
-[![Project Status: WIP - Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip)
+
+[![Travis](https://img.shields.io/travis/ceable/pangofin.svg?style=flat-square)](https://github.com/ceable/pangofin)
 [![license](https://img.shields.io/github/license/ceable/pangofin.svg?style=flat-square)](https://github.com/ceable/pangofin/blob/master/LICENSE)
 
 
