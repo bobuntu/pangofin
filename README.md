@@ -1,6 +1,3 @@
-<style>
-  ol ol {list-style-type: lower-alpha}
-</style>
 # pangofin
 A modern boilerplate for C++ project, built with [CMake v3.16.5](), tested with [Catch2 v2.11.1]().
 String formating with the `cxx_std_20` approved [**fmt** formating library v6.1.2]().
