@@ -1,4 +1,4 @@
-# pangofin
+# pangofin [![Travis](https://travis-ci.org/bobuntu/pangofin.svg?branch=cxx-20)](https://github.com/ceable/pangofin)
 A modern boilerplate for C++ project, built with [CMake v3.16.5](), tested with [Catch2 v2.11.1]().
 String formating with the `cxx_std_20` approved [**fmt** formating library v6.1.2]().
 The package manager of choice is [**Conan** v1.22.3](). Other notable libraries are [Spdlog v1.5.0]()
@@ -6,11 +6,6 @@ The package manager of choice is [**Conan** v1.22.3](). Other notable libraries 
 
 ### Acknowledgements
 Thanks to `@lefticus` for the excellent [C++ Weekly vlogs]().
-
-
-[![Travis](https://img.shields.io/travis/ceable/pangofin.svg?style=flat-square)](https://github.com/ceable/pangofin)
-[![license](https://img.shields.io/github/license/ceable/pangofin.svg?style=flat-square)](https://github.com/ceable/pangofin/blob/master/LICENSE)
-
 
 ## Test matrix
 

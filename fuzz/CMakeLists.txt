@@ -12,5 +12,5 @@ target_compile_options(fuzzy_test
 set(FUZZY_RUNTIME
   10
   CACHE STRING "Duration in sec to run fuzzy tests")
-add_test(NAME fuzzy_test_RUN COMMAND fuzzy_test
+add_test(NAME fuzzy_test_run COMMAND fuzzy_test
   -max_total_time=${FUZZY_RUNTIME})

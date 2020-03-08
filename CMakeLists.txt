@@ -15,6 +15,7 @@ enable_sanitizers(cfg_options)
 
 option(BUILD_SHARED_LIBS "Compile to shared libraries." OFF)
 option(ENABLE_TESTING "Enable test builds." ON)
+option(ENABLE_FUZZING "Enable test builds." ON)
 
 option(ENABLE_PCH "Enable precompiled headers" OFF)
 if(ENABLE_PCH)
