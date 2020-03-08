@@ -1,44 +1,39 @@
-cmake_minimum_required(VERSION 3.1)
-project(pangofin)
+cmake_minimum_required(VERSION 3.15)
+project(pangofin CXX)
+include(cmake/StandardProjectSettings.cmake)
 
-# Change all `pangofin` to your project name!
-set(pangofin-build_tests OFF CACHE BOOL "Whether to build tests")
+add_library(cfg_options INTERFACE)
+target_compile_features(cfg_options INTERFACE)
 
-# Enable C++14
-set (CMAKE_CXX_STANDARD 14)
+add_library(cfg_warnings INTERFACE)
 
-################################
-# Find thread
-################################
-find_package(Threads REQUIRED)
+include(cmake/CompilerWarnings.cmake)
+set_cfg_warnings(cfg_warnings)
 
-################################
-# Catch
-################################
-set(Catch_INCLUDE_DIR vendor/Catch/include)
+include(cmake/Sanitizers.cmake)
+enable_sanitizers(cfg_options)
 
-##################################
-# Spdlog
-##################################
-set(spdlog_SOURCE_DIR vendor/spdlog)
-include_directories(${spdlog_SOURCE_DIR}/include)
+option(BUILD_SHARED_LIBS "Compile to shared libraries." OFF)
+option(ENABLE_TESTING "Enable test builds." ON)
 
-
-##################################
-include_directories(src)
-
-set(pangofin_SOURCE src/module/pangofin.hpp src/module/pangofin.cc)
-
-add_library(pangofin STATIC ${pangofin_SOURCE})
-target_link_libraries(pangofin ${CMAKE_THREAD_LIBS_INIT})
-
-if (pangofin-build_tests)
-    enable_testing()
-
-    add_executable(pangofin-test test/pangofin_test.cc test/test_main.cc)
-    target_include_directories(pangofin-test PUBLIC ${Catch_INCLUDE_DIR})
-    target_link_libraries(pangofin-test pangofin)
-
-
-    add_test(pangofin_test pangofin-test)
+option(ENABLE_PCH "Enable precompiled headers" OFF)
+if(ENABLE_PCH)
+  target_precompile_headers(cfg_options INTERFACE <vector> <string> <map> <utility>)
 endif()
+
+include(cmake/Conan.cmake)
+run_conan()
+
+if(ENABLE_TESTING)
+  enable_testing()
+  include(Catch)
+  message("Building tests. FYI constexpr testing.")
+  add_subdirectory(test)
+endif()
+
+if(ENABLE_FUZZING)
+  message("Building fuzzy tests using LLVM's LibFuzzer.")
+  add_subdirectory(fuzz)
+endif()
+
+add_subdirectory(src)

@@ -1,0 +1,10 @@
+add_executable(cea_pangofin
+  main.cc
+  factorial.cc)
+target_link_libraries(cea_pangofin
+  PRIVATE
+  cfg_options
+  cfg_warnings
+  CONAN_PKG::docopt.cpp
+  CONAN_PKG::fmt
+  CONAN_PKG::spdlog)
