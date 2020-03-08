@@ -7,7 +7,7 @@ addons:
     sources:
       - ubuntu-toolchain-r-test
     packages:
-      - clang-snapshot
+      - clang
 install:
   - pip install --user conan cmake
 script:
