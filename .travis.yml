@@ -12,6 +12,6 @@ install:
   - pip install --user conan cmake
 script:
   - CXX=/usr/bin/clang++ CC=/usr/bin/clang cmake -DCODE_COVERAGE=ON .
-  - cmake -Bbuild -- -j$(nproc)
+  - cmake -B . -- -j$(nproc)
   - ctest -j$(nproc)
   - bash < (curl -s https://codecov.io/bash) -x /usr/bin/gcov
