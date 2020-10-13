@@ -4,7 +4,7 @@ add_library(MAIN.X
   test_main.cc)
 target_link_libraries(MAIN.X
   Catch2::Catch2)
-add_executable(TEST test_soda.cc)
-target_link_libraries(TEST
+add_executable(SCN_vectorsSizeAndCapacity test_seed_scn_vector.cc)
+target_link_libraries(SCN_vectorsSizeAndCapacity
   MAIN.X
   RUN)
