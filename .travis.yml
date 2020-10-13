@@ -8,11 +8,14 @@ services:
 
 before_install:
     - docker pull htfy96/build-image:lite
-    - docker run -ti -v $(pwd):/data htfy96/build-image:lite bash -c "cd /data; mkdir -p build && cd build && rm -rf *; cmake -DBUILD_TESTING=ON -DCMAKE_C_COMPILER=${X_CC} -DCMAKE_CXX_COMPILER=${X_CXX} -DCMAKE_BUILD_TYPE=${BUILD_TYPE} .."
+    - docker run -ti -v $(pwd)/bobuntu/pangofin:/data htfy96/build-image:lite bash -c "cd /data; mkdir -p build && \
+        cd build && rm -rf *; cmake -DBUILD_TESTING=ON -DCMAKE_C_COMPILER=${X_CC} \
+        -DCMAKE_CXX_COMPILER=${X_CXX} -DCMAKE_BUILD_TYPE=${BUILD_TYPE} .."
 
 script:
-    - docker run -ti -v $(pwd):/data htfy96/build-image:lite bash -c 'cd /data/build; make -j 4'
-    - docker run -ti -v $(pwd):/data htfy96/build-image:lite bash -c 'cd /data/build; ctest --output-on-failure; valgrind --track-fds=yes ctest --output-on-failure'
+    - docker run -ti -v $(pwd)/bobuntu/pangofin:/data htfy96/build-image:lite bash -c 'cd /data/build; make -j 4'
+    - docker run -ti -v $(pwd)/bobuntu/pangofin:/data htfy96/build-image:lite bash -c 'cd /data/build; \
+            ctest --output-on-failure; valgrind --track-fds=yes ctest --output-on-failure'
 
 matrix:
   include:
